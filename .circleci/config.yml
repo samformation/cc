@@ -1,14 +1,13 @@
 version: 2.1
-orbs:
-  node: circleci/node@1.1
 jobs:
   build:
-    executor:
-      name: node/default
-      tag: '10.4'
+    docker:
+      - image: alpine:3.7
     steps:
-      - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-      - run: npm run test
+      - run:
+          name: The First Step
+          command: |
+            echo 'Hello World!'
+            echo 'This is the delivery pipeline'
+Check-in the config and see it run. You can see the output of the job in the CircleCI app.
+
